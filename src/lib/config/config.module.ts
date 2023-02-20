@@ -1,17 +1,18 @@
 import { Module } from "@nestjs/common";
 import { ConfigModule, ConfigService } from "@nestjs/config";
 import * as Joi from "joi";
-import { app, appConfigValidationSchema } from "./configs";
+import { app, appConfigValidationSchema, jwt, jwtConfigValidationSchema } from "./configs";
 
 @Module({
 	imports: [
 		ConfigModule.forRoot({
-			load: [app],
+			load: [app, jwt],
 			cache: true,
 			isGlobal: true,
 			expandVariables: true,
 			validationSchema: Joi.object({
 				...appConfigValidationSchema,
+				...jwtConfigValidationSchema,
 			}),
 			validationOptions: {
 				abortEarly: true,

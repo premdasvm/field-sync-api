@@ -1,4 +1,4 @@
-import { IConfig } from "@lib/config/configs/config.interface";
+import { IConfig } from "@lib/config/config.interface";
 import { Logger } from "@nestjs/common";
 import { ConfigService } from "@nestjs/config";
 import { NestFactory } from "@nestjs/core";

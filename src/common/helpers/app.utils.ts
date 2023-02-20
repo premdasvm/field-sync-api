@@ -1,4 +1,4 @@
-import { IConfig } from "@lib/config/configs/config.interface";
+import { IConfig } from "@lib/config/config.interface";
 import { INestApplication } from "@nestjs/common";
 import { ConfigService } from "@nestjs/config";
 import { DocumentBuilder, SwaggerModule } from "@nestjs/swagger";
