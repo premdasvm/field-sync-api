@@ -42,7 +42,7 @@ export class CreateUserDto {
 
 	/**
 	 * Role of user
-	 * @example ["EMPLOYEE"]
+	 * @example "EMPLOYEE"
 	 */
 	@IsEnum(Roles)
 	role: Roles;

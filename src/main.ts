@@ -1,6 +1,6 @@
 import { AppUtils } from "@common/helpers";
 import { IConfig } from "@lib/config/config.interface";
-import { Logger } from "@nestjs/common";
+import { Logger, ValidationPipe } from "@nestjs/common";
 import { ConfigService } from "@nestjs/config";
 import { NestFactory } from "@nestjs/core";
 import { AppModule } from "./app.module";
@@ -17,6 +17,7 @@ async function bootstrap() {
 
 	const globalPrefix = configService.get("app.prefix", { infer: true });
 
+	app.useGlobalPipes(new ValidationPipe());
 	app.setGlobalPrefix(globalPrefix);
 
 	// =========================================================
