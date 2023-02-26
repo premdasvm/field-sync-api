@@ -1,4 +1,5 @@
 import { Roles } from "@common/types";
+import { Shift } from "@entities";
 import { IsEmail, IsEnum, IsNotEmpty, IsNumberString, IsOptional, IsString } from "class-validator";
 
 export class CreateUserDto {
@@ -46,4 +47,11 @@ export class CreateUserDto {
 	 */
 	@IsEnum(Roles)
 	role: Roles;
+
+	/**
+	 * Shifts for user if EMPLOYEE
+	 * @example [1,2]
+	 */
+	@IsNotEmpty()
+	shifts: Pick<Shift, "id">[];
 }

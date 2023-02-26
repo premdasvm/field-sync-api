@@ -27,7 +27,10 @@ export class UserService {
 	}
 
 	async findOne(id: number) {
-		const user = await this.userRepo.findOne(id);
+		const user = await this.userRepo.findOne(id, {
+			populate: ["shifts"],
+			fields: ["*", "shifts.name", "shifts.startTime", "shifts.endTime"],
+		});
 
 		if (!user) {
 			throw new NotFoundException(`User does not exist`);

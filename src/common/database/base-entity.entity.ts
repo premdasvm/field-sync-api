@@ -10,6 +10,6 @@ export abstract class BaseEntity {
 	@Property({ onUpdate: () => new Date(), hidden: true })
 	updatedAt? = new Date();
 
-	@Property()
+	@Property({ hidden: true })
 	deletedAt?: Date;
 }
