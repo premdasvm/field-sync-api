@@ -6,6 +6,13 @@ export interface IAuthenticationResponse {
 	refresh_token?: string;
 }
 
+export interface IOauthResponse {
+	email: string;
+	firstName?: string;
+	lastName?: string;
+	accessToken: string;
+}
+
 export interface IJwtPayload {
 	jti?: number;
 	sub: number;
@@ -13,5 +20,6 @@ export interface IJwtPayload {
 	exp: number;
 	aud: string;
 	iss: string;
+	isTwoFactorEnabled?: boolean;
 	roles?: string[];
 }

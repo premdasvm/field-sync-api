@@ -1,6 +1,6 @@
 import { BaseEntity } from "@common/database";
-import { User } from "@entities";
-import { Collection, Entity, ManyToMany, Property } from "@mikro-orm/core";
+import { Attendance, User } from "@entities";
+import { Collection, Entity, ManyToMany, ManyToOne, OneToMany, Property } from "@mikro-orm/core";
 
 @Entity()
 export class Shift extends BaseEntity {
@@ -18,4 +18,7 @@ export class Shift extends BaseEntity {
 
 	@ManyToMany(() => User, "shifts")
 	users = new Collection<User>(this);
+
+	@OneToMany(() => Attendance, attendance => attendance.shift)
+	attendances: Attendance[];
 }

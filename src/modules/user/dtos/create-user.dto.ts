@@ -52,6 +52,5 @@ export class CreateUserDto {
 	 * Shifts for user if EMPLOYEE
 	 * @example [1,2]
 	 */
-	@IsNotEmpty()
 	shifts: Pick<Shift, "id">[];
 }

@@ -1,15 +1,4 @@
-import {
-	Body,
-	ConflictException,
-	Controller,
-	Get,
-	HttpException,
-	HttpStatus,
-	Param,
-	ParseIntPipe,
-	Post,
-	UseGuards,
-} from "@nestjs/common";
+import { Body, Controller, Get, Param, ParseIntPipe, Post, UseGuards } from "@nestjs/common";
 import { ApiBearerAuth, ApiTags } from "@nestjs/swagger";
 import { UserService } from "./user.service";
 import { CreateUserDto } from "./dtos/create-user.dto";

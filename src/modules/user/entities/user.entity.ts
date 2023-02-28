@@ -10,7 +10,6 @@ import {
 	Enum,
 	EventArgs,
 	ManyToMany,
-	OneToMany,
 	Property,
 	Unique,
 } from "@mikro-orm/core";

@@ -17,7 +17,13 @@ async function bootstrap() {
 
 	const globalPrefix = configService.get("app.prefix", { infer: true });
 
-	app.useGlobalPipes(new ValidationPipe());
+	app.useGlobalPipes(
+		new ValidationPipe({
+			whitelist: true,
+			transform: true,
+			forbidUnknownValues: false,
+		}),
+	);
 	app.setGlobalPrefix(globalPrefix);
 
 	// =========================================================

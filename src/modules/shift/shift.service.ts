@@ -12,6 +12,7 @@ export class ShiftService {
 	async create(dto: CreateShiftDto) {
 		const newShift = this.shiftRepo.create(dto);
 		await this.shiftRepo.persistAndFlush(newShift);
+		return newShift;
 	}
 
 	async findAll() {
