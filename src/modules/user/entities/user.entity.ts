@@ -1,7 +1,7 @@
 import { BaseEntity } from "@common/database";
 import { HelperService } from "@common/helpers";
 import { Roles } from "@common/types";
-import { Shift } from "@entities";
+import { Shift, UserShift } from "@entities";
 import {
 	BeforeCreate,
 	BeforeUpdate,
@@ -10,6 +10,7 @@ import {
 	Enum,
 	EventArgs,
 	ManyToMany,
+	OneToMany,
 	Property,
 	Unique,
 } from "@mikro-orm/core";
@@ -40,8 +41,8 @@ export class User extends BaseEntity {
 
 	@ManyToMany({
 		entity: () => Shift,
-		owner: true,
-		pivotTable: "user_shift",
+		pivotEntity: () => UserShift,
+		eager: true,
 	})
 	shifts = new Collection<Shift>(this);
 

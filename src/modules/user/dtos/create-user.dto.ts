@@ -48,9 +48,10 @@ export class CreateUserDto {
 	@IsEnum(Roles)
 	role: Roles;
 
-	/**
-	 * Shifts for user if EMPLOYEE
-	 * @example [1,2]
-	 */
-	shifts: Pick<Shift, "id">[];
+	// /**
+	//  * Shifts for user if EMPLOYEE
+	//  * @example [1,2]
+	//  */
+	// @IsOptional()
+	// shifts: number[];
 }

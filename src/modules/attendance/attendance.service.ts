@@ -38,7 +38,7 @@ export class AttendanceService {
 				user: loggedInUser,
 			});
 			await this.attendanceRepo.persistAndFlush(checkIn);
-			return checkIn;
+			return { message: "Check In Successful" };
 		} catch (error) {
 			throw error;
 		}
@@ -52,6 +52,6 @@ export class AttendanceService {
 			user: loggedInUser,
 		});
 		this.attendanceRepo.persistAndFlush(checkOut);
-		return checkOut;
+		return { message: "Check Out Successful" };
 	}
 }
